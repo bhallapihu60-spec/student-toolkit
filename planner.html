@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0">
 
     <meta name="theme-color"
-        content="#F8F4F7">
+        content="#F8F7F4">
 
     <title>Study Planner | Student Toolkit</title>
 
@@ -20,16 +20,15 @@
 
 <body class="planner-page">
 
+
     <!-- Decorative background -->
 
     <div class="planner-blob planner-pink"></div>
-
     <div class="planner-blob planner-purple"></div>
-
     <div class="planner-blob planner-blue"></div>
 
 
-    <!-- HEADER -->
+    <!-- Header -->
 
     <header class="planner-header">
 
@@ -44,7 +43,7 @@
             </h1>
 
             <p class="planner-subtitle">
-                Plan gently. Study smart. ♡
+                Plan your day. Focus on what matters. ♡
             </p>
 
         </div>
@@ -61,219 +60,66 @@
     </header>
 
 
+
     <main class="planner-main">
 
 
-        <!-- TODAY -->
+        <!-- Today's plan -->
 
-        <section class="today-card">
+        <section class="planner-card">
 
-            <div>
-
-                <p class="today-small">
-                    TODAY
-                </p>
-
-                <h2 id="todayDate">
-                    Loading...
-                </h2>
-
-            </div>
-
-
-            <div class="calendar-icon">
-                ♡
-            </div>
-
-        </section>
-
-
-        <!-- ADD SESSION -->
-
-        <section class="planner-form">
-
-            <div class="form-title">
-
-                <span class="form-star">
-                    ✦
-                </span>
+            <div class="planner-card-top">
 
                 <div>
 
-                    <h2>
-                        Plan a study session
-                    </h2>
-
-                    <p>
-                        What are you working on today?
+                    <p class="planner-label">
+                        ✦ TODAY'S PLAN
                     </p>
 
+                    <h2>
+                        What are you studying?
+                    </h2>
+
+                </div>
+
+                <div class="planner-star">
+                    ✦
                 </div>
 
             </div>
 
 
-            <!-- SUBJECT -->
-
-            <div class="input-group">
-
-                <label>
-                    SUBJECT
-                </label>
-
-                <input
-                    type="text"
-                    id="subjectInput"
-                    placeholder="e.g. Mathematics"
-                    autocomplete="off"
-                >
-
-            </div>
+            <input
+                type="text"
+                id="subjectInput"
+                class="planner-input"
+                placeholder="e.g. Mathematics"
+                autocomplete="off"
+            >
 
 
-            <!-- TOPIC -->
+            <input
+                type="text"
+                id="topicInput"
+                class="planner-input"
+                placeholder="e.g. Exponents and Powers"
+                autocomplete="off"
+            >
 
-            <div class="input-group">
-
-                <label>
-                    TOPIC
-                </label>
-
-                <input
-                    type="text"
-                    id="topicInput"
-                    placeholder="e.g. Algebra"
-                    autocomplete="off"
-                >
-
-            </div>
-
-
-            <!-- TIME -->
-
-            <div class="form-row">
-
-                <div class="input-group">
-
-                    <label>
-                        START TIME
-                    </label>
-
-                    <input
-                        type="time"
-                        id="timeInput"
-                    >
-
-                </div>
-
-
-                <div class="input-group">
-
-                    <label>
-                        DURATION
-                    </label>
-
-                    <select id="durationInput">
-
-                        <option value="30">
-                            30 min
-                        </option>
-
-                        <option value="45">
-                            45 min
-                        </option>
-
-                        <option value="60" selected>
-                            1 hour
-                        </option>
-
-                        <option value="90">
-                            1.5 hours
-                        </option>
-
-                        <option value="120">
-                            2 hours
-                        </option>
-
-                    </select>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRIORITY -->
-
-            <div class="input-group">
-
-                <label>
-                    PRIORITY
-                </label>
-
-
-                <div class="priority-options">
-
-                    <button
-                        type="button"
-                        class="priority active"
-                        data-priority="Important"
-                        onclick="selectPriority(this)">
-
-                        <span></span>
-
-                        Important
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="priority"
-                        data-priority="Normal"
-                        onclick="selectPriority(this)">
-
-                        <span></span>
-
-                        Normal
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="priority"
-                        data-priority="Low"
-                        onclick="selectPriority(this)">
-
-                        <span></span>
-
-                        Low
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- ADD -->
 
             <button
-                class="create-session-btn"
-                onclick="addSession()">
+                class="planner-add-btn"
+                onclick="addStudyTask()">
 
-                <span>
-                    +
-                </span>
-
-                Add Study Session
+                + Add Study Session
 
             </button>
 
         </section>
 
 
-        <!-- PLANNED SESSIONS -->
+
+        <!-- Study sessions -->
 
         <section class="sessions-section">
 
@@ -282,45 +128,38 @@
                 <div>
 
                     <p class="planner-label">
-                        YOUR DAY
+                        YOUR SESSIONS
                     </p>
 
                     <h2>
-                        Study Sessions
+                        Study Schedule
                     </h2>
 
                 </div>
 
-
-                <span
-                    id="sessionCount"
-                    class="session-count">
-
-                    0
-
+                <span id="sessionCount">
+                    0 sessions
                 </span>
 
             </div>
 
 
             <div
-                id="sessionList"
-                class="session-list">
+                id="studySessions"
+                class="study-sessions">
             </div>
 
-
-            <!-- EMPTY -->
 
             <div
                 id="plannerEmpty"
                 class="planner-empty">
 
                 <div class="planner-empty-icon">
-                    ✦
+                    ♡
                 </div>
 
                 <h3>
-                    Your day is waiting
+                    Your study plan is empty
                 </h3>
 
                 <p>
@@ -335,11 +174,13 @@
     </main>
 
 
+
     <footer class="planner-footer">
 
         Student Toolkit · Made for students ♡
 
     </footer>
+
 
 
     <script src="planner.js"></script>
