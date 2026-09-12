@@ -1,24 +1,17 @@
-/* =========================================================
-   STUDY PLANNER JAVASCRIPT
-   ========================================================= */
+// ========================================
+// STUDY PLANNER
+// ========================================
 
 
-/* ---------------------------------------------------------
-   LOAD SAVED SESSIONS
-   --------------------------------------------------------- */
-
-let sessions =
+let studySessions =
     JSON.parse(
         localStorage.getItem("studySessions")
     ) || [];
 
 
-let selectedPriority = "Important";
-
-
-/* ---------------------------------------------------------
-   ELEMENTS
-   --------------------------------------------------------- */
+// ----------------------------------------
+// ELEMENTS
+// ----------------------------------------
 
 const subjectInput =
     document.getElementById("subjectInput");
@@ -26,91 +19,35 @@ const subjectInput =
 const topicInput =
     document.getElementById("topicInput");
 
-const timeInput =
-    document.getElementById("timeInput");
-
-const durationInput =
-    document.getElementById("durationInput");
-
-const sessionList =
-    document.getElementById("sessionList");
-
-const sessionCount =
-    document.getElementById("sessionCount");
+const studySessionsContainer =
+    document.getElementById("studySessions");
 
 const plannerEmpty =
     document.getElementById("plannerEmpty");
 
-const todayDate =
-    document.getElementById("todayDate");
+const sessionCount =
+    document.getElementById("sessionCount");
 
 
-/* ---------------------------------------------------------
-   TODAY'S DATE
-   --------------------------------------------------------- */
-
-function showToday() {
-
-    const today = new Date();
-
-    const options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    };
-
-    todayDate.textContent =
-        today.toLocaleDateString(
-            "en-IN",
-            options
-        );
-
-}
-
-
-/* ---------------------------------------------------------
-   SAVE
-   --------------------------------------------------------- */
+// ----------------------------------------
+// SAVE
+// ----------------------------------------
 
 function saveSessions() {
 
     localStorage.setItem(
         "studySessions",
-        JSON.stringify(sessions)
+        JSON.stringify(studySessions)
     );
 
 }
 
 
-/* ---------------------------------------------------------
-   SELECT PRIORITY
-   --------------------------------------------------------- */
+// ----------------------------------------
+// ADD STUDY SESSION
+// ----------------------------------------
 
-function selectPriority(button) {
-
-    document
-        .querySelectorAll(".priority")
-        .forEach(option => {
-
-            option.classList.remove("active");
-
-        });
-
-
-    button.classList.add("active");
-
-
-    selectedPriority =
-        button.dataset.priority;
-
-}
-
-
-/* ---------------------------------------------------------
-   ADD SESSION
-   --------------------------------------------------------- */
-
-function addSession() {
+function addStudyTask() {
 
     const subject =
         subjectInput.value.trim();
@@ -118,78 +55,51 @@ function addSession() {
     const topic =
         topicInput.value.trim();
 
-    const time =
-        timeInput.value;
 
-    const duration =
-        durationInput.value;
+    if (subject === "") {
 
-
-    /* Check required fields */
-
-    if (
-        subject === "" ||
-        topic === ""
-    ) {
-
-        alert(
-            "Please enter the subject and topic."
-        );
+        subjectInput.focus();
 
         return;
 
     }
 
 
-    /* Create session */
-
-    const session = {
+    studySessions.unshift({
 
         id: Date.now(),
 
         subject: subject,
 
-        topic: topic,
-
-        time: time || "Anytime",
-
-        duration: duration,
-
-        priority: selectedPriority,
+        topic: topic || "Study session",
 
         completed: false
 
-    };
+    });
 
-
-    sessions.push(session);
-
-
-    saveSessions();
-
-
-    /* Clear form */
 
     subjectInput.value = "";
 
     topicInput.value = "";
 
-    timeInput.value = "";
 
+    saveSessions();
 
     renderSessions();
+
+    subjectInput.focus();
 
 }
 
 
-/* ---------------------------------------------------------
-   COMPLETE SESSION
-   --------------------------------------------------------- */
+// ----------------------------------------
+// COMPLETE SESSION
+// ----------------------------------------
 
 function toggleSession(id) {
 
     const session =
-        sessions.find(
+        studySessions.find(
             item => item.id === id
         );
 
@@ -203,229 +113,130 @@ function toggleSession(id) {
 
     saveSessions();
 
-
     renderSessions();
 
 }
 
 
-/* ---------------------------------------------------------
-   DELETE SESSION
-   --------------------------------------------------------- */
+// ----------------------------------------
+// DELETE SESSION
+// ----------------------------------------
 
 function deleteSession(id) {
 
-    sessions =
-        sessions.filter(
+    studySessions =
+        studySessions.filter(
             item => item.id !== id
         );
 
 
     saveSessions();
 
-
     renderSessions();
 
 }
 
 
-/* ---------------------------------------------------------
-   FORMAT TIME
-   --------------------------------------------------------- */
-
-function formatTime(time) {
-
-    if (
-        !time ||
-        time === "Anytime"
-    ) {
-
-        return "Anytime";
-
-    }
-
-
-    const [hours, minutes] =
-        time.split(":");
-
-
-    const date =
-        new Date();
-
-    date.setHours(
-        Number(hours)
-    );
-
-    date.setMinutes(
-        Number(minutes)
-    );
-
-
-    return date.toLocaleTimeString(
-        "en-IN",
-        {
-            hour: "numeric",
-            minute: "2-digit"
-        }
-    );
-
-}
-
-
-/* ---------------------------------------------------------
-   PRIORITY CLASS
-   --------------------------------------------------------- */
-
-function priorityClass(priority) {
-
-    if (priority === "Important") {
-
-        return "priority-important";
-
-    }
-
-
-    if (priority === "Normal") {
-
-        return "priority-normal";
-
-    }
-
-
-    return "priority-low";
-
-}
-
-
-/* ---------------------------------------------------------
-   RENDER
-   --------------------------------------------------------- */
+// ----------------------------------------
+// RENDER
+// ----------------------------------------
 
 function renderSessions() {
 
-    sessionList.innerHTML = "";
+    studySessionsContainer.innerHTML = "";
 
 
-    /* Sort sessions by time */
+    studySessions.forEach(session => {
 
-    const sortedSessions =
-        [...sessions].sort(
-            (a, b) => {
-
-                if (
-                    a.time === "Anytime"
-                ) {
-                    return 1;
-                }
-
-                if (
-                    b.time === "Anytime"
-                ) {
-                    return -1;
-                }
-
-                return a.time.localeCompare(
-                    b.time
-                );
-
-            }
-        );
+        const card =
+            document.createElement("div");
 
 
-    sortedSessions.forEach(
-        session => {
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                session.completed
-                    ? "study-session completed"
-                    : "study-session";
+        card.className =
+            session.completed
+                ? "study-session completed"
+                : "study-session";
 
 
-            card.innerHTML = `
+        card.innerHTML = `
 
-                <div class="session-time">
+            <button
+                class="session-check"
+                onclick="toggleSession(${session.id})">
 
-                    <span>
-                        ${formatTime(session.time)}
-                    </span>
+                ${session.completed ? "✓" : ""}
 
-                    <div class="time-line"></div>
-
-                </div>
+            </button>
 
 
-                <div class="session-card">
+            <div class="session-info">
 
-                    <div class="session-top">
+                <h3>
+                    ${escapeHTML(session.subject)}
+                </h3>
 
-                        <span
-                            class="session-priority
-                            ${priorityClass(session.priority)}">
+                <p>
+                    ${escapeHTML(session.topic)}
+                </p>
 
-                            ${session.priority}
-
-                        </span>
-
-
-                        <button
-                            class="session-delete"
-                            onclick="deleteSession(${session.id})">
-
-                            ×
-
-                        </button>
-
-                    </div>
+            </div>
 
 
-                    <h3>
-                        ${escapeHTML(session.subject)}
-                    </h3>
+            <button
+                class="session-delete"
+                onclick="deleteSession(${session.id})">
+
+                ×
+
+            </button>
+
+        `;
 
 
-                    <p>
-                        ${escapeHTML(session.topic)}
-                    </p>
+        studySessionsContainer.appendChild(card);
 
-
-                    <div class="session-bottom">
-
-                        <span class="duration-pill">
-                            ◷ ${session.duration} min
-                        </span>
-
-
-                        <button
-                            class="complete-session"
-                            onclick="toggleSession(${session.id})">
-
-                            ${session.completed
-                                ? "✓ Done"
-                                : "Mark done"}
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            sessionList.appendChild(card);
-
-        }
-    );
+    });
 
 
     updateSessionCount();
 
+    updateEmptyState();
 
-    if (sessions.length === 0) {
+}
+
+
+// ----------------------------------------
+// SESSION COUNT
+// ----------------------------------------
+
+function updateSessionCount() {
+
+    const count =
+        studySessions.length;
+
+
+    if (count === 1) {
+
+        sessionCount.textContent =
+            "1 session";
+
+    } else {
+
+        sessionCount.textContent =
+            `${count} sessions`;
+
+    }
+
+}
+
+
+// ----------------------------------------
+// EMPTY STATE
+// ----------------------------------------
+
+function updateEmptyState() {
+
+    if (studySessions.length === 0) {
 
         plannerEmpty.style.display =
             "flex";
@@ -440,44 +251,9 @@ function renderSessions() {
 }
 
 
-/* ---------------------------------------------------------
-   COUNT
-   --------------------------------------------------------- */
-
-function updateSessionCount() {
-
-    const total =
-        sessions.length;
-
-
-    sessionCount.textContent =
-        total;
-
-}
-
-
-/* ---------------------------------------------------------
-   SECURITY
-   --------------------------------------------------------- */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
-
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
-
-}
-
-
-/* ---------------------------------------------------------
-   HOME
-   --------------------------------------------------------- */
+// ----------------------------------------
+// GO HOME
+// ----------------------------------------
 
 function goHome() {
 
@@ -487,10 +263,57 @@ function goHome() {
 }
 
 
-/* ---------------------------------------------------------
-   START
-   --------------------------------------------------------- */
+// ----------------------------------------
+// ESCAPE HTML
+// ----------------------------------------
 
-showToday();
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+// ----------------------------------------
+// ENTER KEY
+// ----------------------------------------
+
+subjectInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            addStudyTask();
+
+        }
+
+    }
+);
+
+
+topicInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            addStudyTask();
+
+        }
+
+    }
+);
+
+
+// ----------------------------------------
+// INITIAL LOAD
+// ----------------------------------------
 
 renderSessions();
