@@ -1906,3 +1906,1418 @@ body.dark-mode .empty-state p {
 
     color: #918A96;
 }
+/* =========================================================
+   STUDY PLANNER PAGE
+   ========================================================= */
+
+.planner-page {
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            #F8DDE8 0%,
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 95% 15%,
+            #DDD7F3 0%,
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            #D9EDF2 0%,
+            transparent 25%
+        ),
+        #FBF8F5;
+}
+
+
+/* =========================================================
+   DECORATIVE BLOBS
+   ========================================================= */
+
+.planner-blob {
+    position: fixed;
+    border-radius: 50%;
+
+    filter: blur(4px);
+
+    opacity: 0.55;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.planner-pink {
+    width: 180px;
+    height: 180px;
+
+    background: #F1BBD2;
+
+    top: -80px;
+    right: -70px;
+}
+
+
+.planner-purple {
+    width: 220px;
+    height: 220px;
+
+    background: #D3C9EE;
+
+    top: 380px;
+    left: -140px;
+}
+
+
+.planner-blue {
+    width: 180px;
+    height: 180px;
+
+    background: #C8E5ED;
+
+    bottom: 30px;
+    right: -100px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.planner-header {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding:
+        25px
+        20px
+        20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+
+.planner-mini-title {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #81778D;
+
+    margin-bottom: 12px;
+}
+
+
+.planner-header h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 43px;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    color: #27233A;
+
+    margin-bottom: 10px;
+}
+
+
+.planner-subtitle {
+    color: #777283;
+
+    font-size: 15px;
+}
+
+
+.planner-back {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    background:
+        rgba(255,255,255,0.75);
+
+    backdrop-filter:
+        blur(15px);
+
+    color: #29243A;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(80,60,100,0.08);
+
+    transition:
+        0.25s ease;
+}
+
+
+.planner-back:hover {
+    transform:
+        translateX(-3px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.planner-main {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding:
+        10px
+        20px
+        70px;
+}
+
+
+/* =========================================================
+   TODAY CARD
+   ========================================================= */
+
+.today-card {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    padding: 24px;
+
+    margin-bottom: 18px;
+
+    border-radius: 27px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.92),
+            rgba(247,239,248,0.92)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 15px 40px
+        rgba(90,70,110,0.08);
+}
+
+
+.today-small {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #A07C91;
+
+    margin-bottom: 8px;
+}
+
+
+.today-card h2 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    color: #302A3E;
+}
+
+
+.calendar-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #F8DCE8;
+
+    color: #C56E99;
+
+    font-size: 28px;
+
+    transform: rotate(6deg);
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.planner-form {
+    padding: 25px;
+
+    border-radius: 29px;
+
+    background:
+        rgba(255,255,255,0.88);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 18px 50px
+        rgba(80,60,100,0.09);
+
+    margin-bottom: 35px;
+}
+
+
+.form-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+
+.form-star {
+    flex-shrink: 0;
+
+    width: 47px;
+    height: 47px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: #EEE8F8;
+
+    color: #9B82C9;
+
+    font-size: 23px;
+}
+
+
+.form-title h2 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    color: #302A3E;
+
+    margin-bottom: 5px;
+}
+
+
+.form-title p {
+    color: #898291;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+
+.input-group label {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+
+    color: #81788A;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input,
+.input-group select {
+    width: 100%;
+
+    height: 50px;
+
+    border: 1px solid #E7E1E8;
+
+    border-radius: 16px;
+
+    background: #FCFAFC;
+
+    color: #332E40;
+
+    padding:
+        0
+        15px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        0.2s ease;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #C8B7E3;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(201,193,232,0.20);
+}
+
+
+/* =========================================================
+   TWO COLUMN ROW
+   ========================================================= */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   PRIORITY
+   ========================================================= */
+
+.priority-options {
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+.priority {
+    border: 1px solid #E5DEE8;
+
+    background: #FCFAFC;
+
+    color: #777080;
+
+    border-radius: 30px;
+
+    padding:
+        10px
+        14px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    transition:
+        0.2s ease;
+}
+
+
+.priority span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #C5BEC9;
+}
+
+
+.priority.active {
+    background: #F6E1EB;
+
+    border-color: #E7B5CD;
+
+    color: #713D59;
+}
+
+
+.priority.active span {
+    background: #D77FA9;
+}
+
+
+/* =========================================================
+   CREATE SESSION BUTTON
+   ========================================================= */
+
+.create-session-btn {
+    width: 100%;
+
+    height: 53px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #E89BBF,
+            #B9A6DF
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px
+        rgba(191,116,160,0.22);
+
+    transition:
+        0.2s ease;
+}
+
+
+.create-session-btn span {
+    font-size: 20px;
+
+    vertical-align: -1px;
+
+    margin-right: 5px;
+}
+
+
+.create-session-btn:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 13px 28px
+        rgba(191,116,160,0.27);
+}
+
+
+/* =========================================================
+   SESSIONS HEADING
+   ========================================================= */
+
+.sessions-section {
+    margin-top: 5px;
+}
+
+
+.sessions-heading {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 17px;
+}
+
+
+.planner-label {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #8C8291;
+
+    margin-bottom: 5px;
+}
+
+
+.sessions-heading h2 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    color: #302A3E;
+}
+
+
+.session-count {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #EEE7F6;
+
+    color: #806CA7;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SESSION LIST
+   ========================================================= */
+
+.session-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.study-session {
+    display: grid;
+
+    grid-template-columns:
+        75px 1fr;
+
+    gap: 10px;
+
+    animation:
+        sessionIn 0.3s ease;
+}
+
+
+/* =========================================================
+   SESSION TIME
+   ========================================================= */
+
+.session-time {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    padding-top: 18px;
+}
+
+
+.session-time > span {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #766B80;
+
+    white-space: nowrap;
+}
+
+
+.time-line {
+    width: 1px;
+
+    flex: 1;
+
+    min-height: 25px;
+
+    margin-top: 8px;
+
+    background:
+        linear-gradient(
+            #D8CFE0,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   SESSION CARD
+   ========================================================= */
+
+.session-card {
+    padding: 17px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFF0F5,
+            #FCE8F0
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 9px 25px
+        rgba(80,60,100,0.07);
+}
+
+
+.study-session:nth-child(2n)
+.session-card {
+    background:
+        linear-gradient(
+            135deg,
+            #F2EFFB,
+            #EAE6F8
+        );
+}
+
+
+.study-session:nth-child(3n)
+.session-card {
+    background:
+        linear-gradient(
+            135deg,
+            #EDF7F9,
+            #E5F1F5
+        );
+}
+
+
+.session-top {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 11px;
+}
+
+
+.session-priority {
+    display: inline-flex;
+
+    padding:
+        5px
+        9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+}
+
+
+.priority-important {
+    background: #F4D4E2;
+
+    color: #914D6C;
+}
+
+
+.priority-normal {
+    background: #DDD7F0;
+
+    color: #685B8C;
+}
+
+
+.priority-low {
+    background: #D9EBEF;
+
+    color: #557C83;
+}
+
+
+.session-delete {
+    width: 29px;
+    height: 29px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    color: #A296A4;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.session-delete:hover {
+    color: #C76D96;
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   SESSION TEXT
+   ========================================================= */
+
+.session-card h3 {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #302A3E;
+
+    margin-bottom: 5px;
+}
+
+
+.session-card > p {
+    color: #777080;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   SESSION BOTTOM
+   ========================================================= */
+
+.session-bottom {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.duration-pill {
+    padding:
+        6px
+        10px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    color: #756B7D;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+.complete-session {
+    border: none;
+
+    border-radius: 20px;
+
+    padding:
+        7px
+        12px;
+
+    background:
+        rgba(255,255,255,0.7);
+
+    color: #75617D;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.complete-session:hover {
+    background: white;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   COMPLETED SESSION
+   ========================================================= */
+
+.study-session.completed {
+    opacity: 0.65;
+}
+
+
+.study-session.completed
+.session-card h3 {
+    text-decoration:
+        line-through;
+}
+
+
+.study-session.completed
+.complete-session {
+    background: #DDBBD0;
+
+    color: #633F55;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.planner-empty {
+    min-height: 190px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.planner-empty-icon {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #F0E7F7;
+
+    color: #A080B4;
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+
+.planner-empty h3 {
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 21px;
+
+    color: #3A3345;
+
+    margin-bottom: 6px;
+}
+
+
+.planner-empty p {
+    color: #89818F;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.planner-footer {
+    text-align: center;
+
+    padding:
+        5px
+        20px
+        30px;
+
+    color: #9B949E;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes sessionIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .planner-page {
+        padding: 0;
+    }
+
+
+    .planner-header {
+        padding:
+            28px
+            18px
+            18px;
+    }
+
+
+    .planner-header h1 {
+        font-size: 39px;
+    }
+
+
+    .planner-main {
+        padding:
+            8px
+            15px
+            60px;
+    }
+
+
+    .today-card {
+        padding: 20px;
+
+        border-radius: 24px;
+    }
+
+
+    .today-card h2 {
+        font-size: 21px;
+    }
+
+
+    .planner-form {
+        padding: 19px;
+
+        border-radius: 25px;
+    }
+
+
+    .form-title h2 {
+        font-size: 19px;
+    }
+
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    .priority-options {
+        gap: 7px;
+    }
+
+
+    .priority {
+        padding:
+            9px
+            12px;
+    }
+
+
+    .study-session {
+        grid-template-columns:
+            58px 1fr;
+
+        gap: 7px;
+    }
+
+
+    .session-time > span {
+        font-size: 11px;
+    }
+
+
+    .session-card {
+        padding: 15px;
+
+        border-radius: 20px;
+    }
+
+
+    .session-card h3 {
+        font-size: 16px;
+    }
+
+
+    .session-bottom {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .complete-session {
+        width: 100%;
+
+        padding: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode.planner-page {
+
+    background:
+
+        radial-gradient(
+            circle at 5% 5%,
+            #3A2632 0%,
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 95% 15%,
+            #302B43 0%,
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            #20333A 0%,
+            transparent 25%
+        ),
+
+        #111113;
+}
+
+
+body.dark-mode
+.planner-header h1 {
+    color: #F5F5F7;
+}
+
+
+body.dark-mode
+.planner-subtitle {
+    color: #AAA5B1;
+}
+
+
+body.dark-mode
+.planner-mini-title {
+    color: #B4A9BD;
+}
+
+
+body.dark-mode
+.planner-back {
+    background:
+        rgba(35,35,38,0.8);
+
+    color: white;
+
+    border-color:
+        #3A3A3E;
+}
+
+
+body.dark-mode
+.today-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(35,34,40,0.95),
+            rgba(42,37,48,0.95)
+        );
+
+    border-color:
+        #3A3740;
+}
+
+
+body.dark-mode
+.today-small {
+    color: #B49AAA;
+}
+
+
+body.dark-mode
+.today-card h2 {
+    color: #F3F0F5;
+}
+
+
+body.dark-mode
+.planner-form {
+    background:
+        rgba(29,29,32,0.92);
+
+    border-color:
+        #38363C;
+}
+
+
+body.dark-mode
+.form-title h2 {
+    color: #F3F0F5;
+}
+
+
+body.dark-mode
+.form-title p {
+    color: #96909A;
+}
+
+
+body.dark-mode
+.input-group label {
+    color: #AAA2AF;
+}
+
+
+body.dark-mode
+.input-group input,
+body.dark-mode
+.input-group select {
+
+    background:
+        #242426;
+
+    color: #F3F1F5;
+
+    border-color:
+        #3A383D;
+}
+
+
+body.dark-mode
+.priority {
+    background:
+        #242426;
+
+    color: #A9A1AC;
+
+    border-color:
+        #3A383D;
+}
+
+
+body.dark-mode
+.priority.active {
+    background:
+        #553748;
+
+    color: #F5DCE8;
+
+    border-color:
+        #795066;
+}
+
+
+body.dark-mode
+.sessions-heading h2 {
+    color: #F3F0F5;
+}
+
+
+body.dark-mode
+.planner-label {
+    color: #AAA2AE;
+}
+
+
+body.dark-mode
+.session-count {
+    background:
+        #302A3C;
+
+    color: #C3B4E2;
+}
+
+
+body.dark-mode
+.session-time > span {
+    color: #AAA1AF;
+}
+
+
+body.dark-mode
+.session-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #35262D,
+            #30252B
+        );
+
+    border-color:
+        #49343E;
+}
+
+
+body.dark-mode
+.study-session:nth-child(2n)
+.session-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2E2A3D,
+            #29263A
+        );
+}
+
+
+body.dark-mode
+.study-session:nth-child(3n)
+.session-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #26353A,
+            #223137
+        );
+}
+
+
+body.dark-mode
+.session-card h3 {
+    color: #F4F1F5;
+}
+
+
+body.dark-mode
+.session-card > p {
+    color: #AAA3AE;
+}
+
+
+body.dark-mode
+.duration-pill,
+body.dark-mode
+.complete-session {
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: #BDB5C1;
+}
+
+
+body.dark-mode
+.session-delete {
+    background:
+        rgba(255,255,255,0.08);
+
+    color: #958D99;
+}
+
+
+body.dark-mode
+.planner-empty h3 {
+    color: #F2EFF5;
+}
+
+
+body.dark-mode
+.planner-empty p {
+    color: #918A96;
+}
