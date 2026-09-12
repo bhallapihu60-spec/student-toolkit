@@ -3401,3 +3401,87 @@ body.dark .theme-btn {
     color: #f5d9e5;
     border-color: #403a43;
 }
+/* ========================================
+   WORKING NIGHT THEME
+======================================== */
+
+body.dark {
+    background: #151417 !important;
+    color: #f5f3f5 !important;
+}
+
+body.dark .header {
+    background: #151417;
+}
+
+body.dark .header h1,
+body.dark .header h2,
+body.dark .header h3,
+body.dark .header p {
+    color: #f5f3f5;
+}
+
+body.dark .subtitle {
+    color: #b7b2ba !important;
+}
+
+body.dark .eyebrow {
+    color: #c9c1e8 !important;
+}
+
+
+/* Hero */
+
+body.dark .hero {
+    background: linear-gradient(
+        135deg,
+        #242027,
+        #292431
+    ) !important;
+
+    border-color: #3b3540;
+}
+
+body.dark .hero h2,
+body.dark .hero p {
+    color: #f5f3f5 !important;
+}
+
+
+/* Tool cards */
+
+body.dark .tool-card {
+    border-color: #3b3540;
+    color: #f5f3f5;
+}
+
+body.dark .tool-card h3 {
+    color: #f5f3f5 !important;
+}
+
+body.dark .tool-card p {
+    color: #b7b2ba !important;
+}
+
+
+/* Section */
+
+body.dark .section-heading h2 {
+    color: #f5f3f5;
+}
+
+
+/* Theme button */
+
+body.dark .theme-btn {
+    background: #28242c;
+    color: #f5d9e5;
+    border-color: #46404a;
+}
+
+
+/* Footer */
+
+body.dark footer {
+    color: #aaa5ad;
+}
