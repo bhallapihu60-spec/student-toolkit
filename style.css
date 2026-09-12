@@ -3321,3 +3321,83 @@ body.dark-mode
 .planner-empty p {
     color: #918A96;
 }
+/* ========================================
+   NIGHT THEME
+======================================== */
+
+body.dark {
+    background: #151417;
+    color: #f5f3f5;
+}
+
+
+/* Header */
+
+body.dark .header {
+    background: #151417;
+}
+
+
+/* Main text */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p {
+    color: inherit;
+}
+
+
+/* Hero */
+
+body.dark .hero {
+    background: #242126;
+    border-color: #37333a;
+}
+
+
+/* Tool cards */
+
+body.dark .tool-card {
+    background: #242126;
+    border-color: #37333a;
+    color: #f5f3f5;
+}
+
+
+body.dark .tool-card p {
+    color: #aaa5ad;
+}
+
+
+body.dark .tool-card:hover {
+    background: #2b272e;
+}
+
+
+/* Section text */
+
+body.dark .eyebrow {
+    color: #aaa5ad;
+}
+
+
+body.dark .subtitle {
+    color: #aaa5ad;
+}
+
+
+/* Footer */
+
+body.dark footer {
+    color: #aaa5ad;
+}
+
+
+/* Theme button */
+
+body.dark .theme-btn {
+    background: #29252c;
+    color: #f5d9e5;
+    border-color: #403a43;
+}
