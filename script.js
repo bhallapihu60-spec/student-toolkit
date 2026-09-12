@@ -11,7 +11,7 @@ function toggleTheme() {
 
     document.body.classList.toggle("dark");
 
-    // Save theme preference
+    // Save the selected theme
     if (document.body.classList.contains("dark")) {
 
         localStorage.setItem("studentTheme", "dark");
@@ -25,7 +25,10 @@ function toggleTheme() {
 }
 
 
-// Load saved theme when page opens
+// ----------------------------------------
+// LOAD SAVED THEME
+// ----------------------------------------
+
 function loadTheme() {
 
     const savedTheme =
@@ -47,39 +50,27 @@ function loadTheme() {
 function openTool(tool) {
 
     if (tool === "planner") {
-
         window.location.href = "planner.html";
-
     }
 
     else if (tool === "todo") {
-
         window.location.href = "todo.html";
-
     }
 
     else if (tool === "timer") {
-
         window.location.href = "timer.html";
-
     }
 
     else if (tool === "notes") {
-
         window.location.href = "notes.html";
-
     }
 
     else if (tool === "calculator") {
-
         window.location.href = "calculator.html";
-
     }
 
     else if (tool === "progress") {
-
         window.location.href = "progress.html";
-
     }
 
 }
