@@ -2,75 +2,202 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>To-Do List | Student Toolkit</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#F8F4F7">
+
+    <title>To-Do | Student Toolkit</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
 
-    <header class="header">
+<body class="todo-page">
+
+    <!-- Decorative background -->
+    <div class="blob blob-pink"></div>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-blue"></div>
+
+
+    <header class="todo-header">
 
         <div>
-            <p class="eyebrow">STUDENT TOOLKIT</p>
-            <h1>To-Do List</h1>
-            <p class="subtitle">Stay organized. Get things done.</p>
+
+            <p class="todo-mini-title">
+                ✦ STUDENT TOOLKIT
+            </p>
+
+            <h1>
+                To-Do List
+            </h1>
+
+            <p class="todo-subtitle">
+                Small steps. Big dreams. ♡
+            </p>
+
         </div>
 
-        <button class="back-btn" onclick="goHome()">
+
+        <button
+            class="todo-back"
+            onclick="goHome()">
+
             ←
+
         </button>
 
     </header>
 
 
-    <main>
-
-        <section class="todo-box">
-
-            <div class="todo-input-area">
-
-                <input
-                    type="text"
-                    id="taskInput"
-                    placeholder="What do you need to do?"
-                    autocomplete="off"
-                >
-
-                <button onclick="addTask()">
-                    Add
-                </button>
-
-            </div>
+    <main class="todo-main">
 
 
-            <div class="todo-info">
+        <!-- Progress -->
 
-                <span id="taskCount">
-                    0 tasks
-                </span>
+        <section class="progress-card">
 
-                <button
-                    class="clear-btn"
-                    onclick="clearCompleted()">
-                    Clear completed
-                </button>
+            <div class="progress-top">
+
+                <div>
+
+                    <p class="progress-label">
+                        ✦ Today's Progress
+                    </p>
+
+                    <h2 id="progressNumber">
+                        0 / 0
+                    </h2>
+
+                </div>
+
+                <div class="progress-doodle">
+                    ♡
+                </div>
 
             </div>
 
 
-            <ul id="taskList"></ul>
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
 
         </section>
+
+
+        <!-- Add task -->
+
+        <section class="add-task-card">
+
+            <div class="plus-circle">
+                +
+            </div>
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Add a new task..."
+                autocomplete="off"
+            >
+
+            <button
+                class="add-task-btn"
+                onclick="addTask()">
+
+                Add
+
+            </button>
+
+        </section>
+
+
+        <!-- Filters -->
+
+        <div class="todo-filters">
+
+            <button
+                class="filter active"
+                onclick="setFilter('all', this)">
+
+                All
+
+            </button>
+
+            <button
+                class="filter"
+                onclick="setFilter('pending', this)">
+
+                To Do
+
+            </button>
+
+            <button
+                class="filter"
+                onclick="setFilter('completed', this)">
+
+                Done
+
+            </button>
+
+        </div>
+
+
+        <!-- Tasks -->
+
+        <section
+            id="taskList"
+            class="task-list">
+        </section>
+
+
+        <!-- Empty state -->
+
+        <div
+            id="emptyState"
+            class="empty-state">
+
+            <div class="empty-icon">
+                ✦
+            </div>
+
+            <h3>
+                Nothing here yet
+            </h3>
+
+            <p>
+                Add a task and let's get things done.
+            </p>
+
+        </div>
+
 
     </main>
 
 
-    <footer>
-        <p>Student Toolkit · Made for students</p>
+    <button
+        class="floating-add"
+        onclick="focusTaskInput()">
+
+        +
+
+    </button>
+
+
+    <footer class="todo-footer">
+
+        Student Toolkit · Made for students ♡
+
     </footer>
 
 
